@@ -1,0 +1,16 @@
+#!/bin/bash
+yum -y install zlib-devel
+yum -y install openssl-devel
+yum -y install perl
+yum -y install cpio
+yum -y install expat-devel
+yum -y install gettext-devel
+yum -y install autoconf
+
+wget http://www.codemonkey.org.uk/projects/git-snapshots/git/git-latest.tar.gz
+tar xzvf git-latest.tar.gz
+cd git-`date '+%Y-%m-%d'`
+autoconf
+./configure --with-curl=/usr/local
+make
+make install
